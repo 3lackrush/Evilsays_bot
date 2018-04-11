@@ -3,6 +3,9 @@
 __author__ = 'Kios <root@mkernel.com>'
 __desc__ = 'Telegram Bot: Evilsays_bot | db module'
 
+import sys
+reload(sys)
+sys.setdefaultencoding("utf-8")
 import MySQLdb
 from config.config import *
 from DBUtils.PooledDB import PooledDB

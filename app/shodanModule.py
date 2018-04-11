@@ -4,6 +4,9 @@ __author__ = 'Kios <root@mkernel.com>'
 __desc__ = 'Telegram Bot: Evilsays_bot | shodan module'
 
 from config.config import shodan_api_key
+import sys
+reload(sys)
+sys.setdefaultencoding("utf-8")
 import shodan 
 
 class BotShodan:

@@ -1,5 +1,8 @@
 from app.searchCVE import searchByCVE
 from app.shodanModule import BotShodan
+import sys
+reload(sys)
+sys.setdefaultencoding("utf-8")
 
 if __name__ == '__main__':
     # cve = "cve-1999-1010"

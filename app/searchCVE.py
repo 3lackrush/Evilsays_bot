@@ -4,6 +4,9 @@ __author__ = 'Kios <root@mkernel.com>'
 __desc__ = 'Telegram Bot: Evilsays_bot | seaching cve Module'
 
 from db import CVESQL
+import sys
+reload(sys)
+sys.setdefaultencoding("utf-8")
 
 def searchByCVE(cve_number):
     obj1 = CVESQL()

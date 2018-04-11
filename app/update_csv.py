@@ -6,6 +6,9 @@ __link__ = 'http://cve.mitre.org/data/downloads/index.html'
 
 import requests
 from config.config import update_check_url, update_download_url
+import sys
+reload(sys)
+sys.setdefaultencoding("utf-8")
 from lxml import html
 from db import CVESQL
 

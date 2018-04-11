@@ -5,6 +5,9 @@ __desc__ = 'Telegram Bot: Evilsays_bot | CVE data parse'
 
 import csv
 from db import CVESQL
+import sys
+reload(sys)
+sys.setdefaultencoding("utf-8")
 
 dbclass = CVESQL()
 sql = "INSERT INTO `cve`.`cve_details`(`name`, `status`, `description`, `references`, `phase`, `votes`, `comments`) VALUES (%s, %s, %s, %s, %s, %s, %s);"

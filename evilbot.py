@@ -4,9 +4,12 @@ __author__ = 'Kios <root@mkernel.com>'
 __desc__ = 'Telegram Bot: Evilsays_bot'
 
 import telebot
+import sys
+reload(sys)
+sys.setdefaultencoding("utf-8")
 from config.config import token
 from app.searchCVE import searchByCVE
-
+from app.shodanModule import BotShodan
 
 bot = telebot.TeleBot(token)
 
@@ -50,7 +53,30 @@ def send_cve_search_result(message):
                          "程序异常！ 请不要搞事情\n",
                          parse_mode='Markdown')
 
+@bot.message_handler(commands=['shodans'])
+def search_shodan_host(message):
+    bot.send_chat_action(message.chat.id, 'typing')
+    bot.send_message(message.chat.id,
+                     "shodan 服务查询\n",
+                      parse_mode='Markdown')
+    try:
+        service_name = message.text.split(" ")[1]
+        # print service_name
+        obj = BotShodan()
+        res, status = obj.searchByService(service_name)
+        ipstr = res['ip']
+        total = res['total']
+        print ipstr
+        reply_message = "\nIP address : " + "\nIP address : ".join(ipstr)
+        bot.send_message(message.chat.id,
+                         "总共搜索到: {}条记录,详细如下: \n".format(str(total)) + reply_message.encode("utf8"),
+                         parse_mode='Markdown')
 
+    except Exception as e:
+        print e
+        bot.send_message(message.chat.id,
+                         "shodan 接口异常!\n",
+                         parse_mode='Markdown')
 
 bot.polling(none_stop=True)
 
