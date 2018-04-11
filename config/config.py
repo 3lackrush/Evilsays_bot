@@ -15,4 +15,4 @@ mysql_chrset = 'utf8'
 update_check_url = "http://cve.mitre.org/data/downloads/index.html"
 update_download_url =  "http://cve.mitre.org/data/downloads/allitems.csv"
 
-shodan_api_key = ""
+shodan_api_key = "you api key"
