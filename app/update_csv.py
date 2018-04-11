@@ -48,5 +48,5 @@ class Updator(object):
 if __name__ == '__main__':
     obj = Updator()
     print obj.getUpdateDate()
-    print obj.checkUpdated()
-    obj.downloadNewCsv()
+    #print obj.checkUpdated()
+    #obj.downloadNewCsv()

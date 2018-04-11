@@ -7,12 +7,12 @@ token = "Your Token"
 
 mysql_host = '127.0.0.1'
 mysql_port = 3306
-mysql_username = 'username'
-mysql_password = 'password'
+mysql_username = 'root'
+mysql_password = 'redhat'
 mysql_db = 'cve'
 mysql_chrset = 'utf8'
 
 update_check_url = "http://cve.mitre.org/data/downloads/index.html"
 update_download_url =  "http://cve.mitre.org/data/downloads/allitems.csv"
 
-
+shodan_api_key = ""

@@ -5,7 +5,7 @@ __desc__ = 'Telegram Bot: Evilsays_bot'
 
 import telebot
 from config.config import token
-from searchCVE import searchByCVE
+from app.searchCVE import searchByCVE
 
 
 bot = telebot.TeleBot(token)
@@ -18,7 +18,7 @@ def send_welcome(message):
                       parse_mode='Markdown')
 
 @bot.message_handler(commands=['search'])
-def send_welcome(message):
+def send_cve_search_result(message):
     bot.send_chat_action(message.chat.id, 'typing')
     try:
         cve_number = message.text.split(" ")[1]
