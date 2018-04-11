@@ -32,14 +32,14 @@ class BotShodan:
             returnResult['org'] = host.get('org', 'n/a')
             returnResult['os'] = host.get('os', 'n/a')
             
-            # Print all banners
+            serviceTemp = []
             for item in host['data']:
-                print """
+                serviceTemp.append("""
                             Port: %s
                             Banner: %s
-
-                """ % (item['port'], item['data'])
-            return host, "success"
+                """ % (item['port'], item['data']))
+            returnResult['service'] = serviceTemp
+            return returnResult, "success"
         except shodan.APIError, e:
             return e, "failed"
          
